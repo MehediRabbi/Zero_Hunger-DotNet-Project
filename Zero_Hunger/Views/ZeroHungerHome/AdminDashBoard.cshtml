@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "AdminDashBoard";
+}
+
+@{
+    int userId = Convert.ToInt32(Session["UserId"]);
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add any additional stylesheets or scripts here -->
+    <style>
+        /* Add custom styles if needed */
+        body {
+            background-color: #f8f9fa; /* Bootstrap background color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .register-button, .logout-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #007bff; /* Bootstrap primary button color */
+            color: #ffffff; /* Button text color */
+            text-decoration: none;
+        }
+
+            .register-button:hover, .logout-button:hover {
+                background-color: #0056b3; /* Bootstrap primary button hover color */
+            }
+
+        .logout-button {
+            background-color: #dc3545; /* Bootstrap danger button color */
+        }
+
+            .logout-button:hover {
+                background-color: #c82333; /* Bootstrap danger button hover color */
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Admin Dashboard</h2>
+
+        <a href="/ZeroHungerHome/RegistarStaff" class="btn btn-primary register-button">Register Staff</a>
+        <a href="@Url.Action("OrderDetails", "ZeroHungerHome")" class="btn btn-primary register-button">Requests</a>
+        <a href="@Url.Action("staffList", "ZeroHungerHome")" class="btn btn-primary register-button">Staff List</a>
+        <a href="@Url.Action("LogOut", "ZeroHungerHome")" class="btn btn-danger logout-button">Logout</a>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add any additional scripts here -->
+
+</body>
+</html>

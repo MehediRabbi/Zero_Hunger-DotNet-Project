@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "staffList";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include the Bootstrap CSS file -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        h2 {
+            color: #343a40; /* Dark gray heading color */
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        th, td {
+            padding: 15px;
+            background-color: #fff; /* White background for cells */
+            text-align: left;
+            border-bottom: 1px solid #ddd; /* Light gray border between rows */
+        }
+
+        th {
+            background-color: #343a40; /* Dark gray background for header */
+            color: #fff; /* White text color for header */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Staff List</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Gender</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Include the Bootstrap JS and Popper.js files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

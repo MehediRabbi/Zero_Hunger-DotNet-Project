@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "StaffDashboard";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add any additional stylesheets or scripts here -->
+    <style>
+        /* Add custom styles if needed */
+        body {
+            background-color: #f8f9fa; /* Bootstrap background color */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .register-button,
+        .logout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .register-button {
+            background-color: #007bff; /* Bootstrap primary button color */
+        }
+
+            .register-button:hover {
+                background-color: #0056b3; /* Bootstrap primary button hover color */
+            }
+
+        .logout-button {
+            background-color: #dc3545; /* Bootstrap danger button color */
+        }
+
+            .logout-button:hover {
+                background-color: #c82333; /* Bootstrap danger button hover color */
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Staff Dashboard</h2>
+        <br>
+
+        <a href="@Url.Action("AssignedOrderList", "ZeroHungerHome")" class="btn btn-primary register-button">Assigned Order</a>
+        <a href="@Url.Action("LogOut", "ZeroHungerHome")" class="btn btn-danger logout-button">Logout</a>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add any additional scripts here -->
+
+</body>
+</html>

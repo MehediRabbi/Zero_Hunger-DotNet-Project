@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "RequestStatus";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RequestStatus</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include the Bootstrap CSS file -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        h2 {
+            color: #343a40; /* Dark gray heading color */
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        th, td {
+            padding: 15px;
+            background-color: #fff; /* White background for cells */
+            text-align: center;
+            border-bottom: 1px solid #ddd; /* Light gray border between rows */
+        }
+
+        th {
+            background-color: #343a40; /* Dark gray background for header */
+            color: #fff; /* White text color for header */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>RequestStatus</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Food Type</th>
+                    <th>Preservation Time (Hour)</th>
+                    <th>Packet Number</th>
+                    <th>Status</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Foodtype</td>
+                        <td>@item.PreservationHour</td>
+                        <td>@item.PacketCount</td>
+                        @{
+                            var status = "";
+                            if (item.Assign != null && item.Status == 0)
+                            {
+                                status = "Assigned Staff";
+                            }
+                            else
+                            {
+                                if (item.Status == 0)
+                                {
+                                    status = "Request Submitted";
+                                }
+                                else
+                                {
+                                    status = "Collected and Distributed";
+                                }
+                            }
+                        }
+                        <td>@status</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <!-- Include the Bootstrap JS and Popper.js files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

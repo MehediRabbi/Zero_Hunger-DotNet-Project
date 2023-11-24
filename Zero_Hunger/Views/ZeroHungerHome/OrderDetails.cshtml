@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "OrderDetails";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add any additional stylesheets or scripts here -->
+    <style>
+        /* Add custom styles if needed */
+        body {
+            background-color: #f8f9fa; /* Bootstrap background color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center; /* Center the form elements */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 70%; /* Make the form controls 70% width */
+            display: inline-block; /* Display inline for smaller width */
+            margin-right: 10px; /* Add some space between elements */
+        }
+
+        .btn-primary {
+            width: 30%; /* Make the button 30% width */
+            display: inline-block; /* Display inline for smaller width */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Order Details</h2>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Food Type</th>
+                    <th>Preservation Time (Hour)</th>
+                    <th>Packet Number</th>
+                    <th>User ID</th>
+                    <th>Assigned Staff ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Foodtype</td>
+                        <td>@item.PreservationHour</td>
+                        <td>@item.PacketCount</td>
+                        <td>@item.RID</td>
+                        <td>@item.Assign</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="id-number">ID Number</label>
+                <input type="text" class="form-control" id="id-number" name="idnumber" placeholder="Enter ID Number" required>
+            </div>
+            <div class="form-group">
+                <label for="order-number">Order Number</label>
+                <input type="text" class="form-control" id="order-number" name="ordernumber" placeholder="Enter Order Number" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add any additional scripts here -->
+
+</body>
+</html>

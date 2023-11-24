@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "RequestGeneration";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add any additional stylesheets or scripts here -->
+    <style>
+        /* Add custom styles if needed */
+        body {
+            background-color: #f8f9fa; /* Bootstrap background color */
+        }
+
+        .stylish-form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff; /* Bootstrap form background color */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Bootstrap box shadow */
+            margin-top: 50px;
+        }
+
+        .submit-button {
+            background-color: #007bff; /* Bootstrap primary button color */
+            color: #ffffff; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+            .submit-button:hover {
+                background-color: #0056b3; /* Bootstrap primary button hover color */
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="mt-4">Request Generation</h2>
+
+        <form class="stylish-form mt-4" method="post">
+            <h3>Food Details</h3>
+            <div class="form-group">
+                <label for="food-type">Food Type</label>
+                <select class="form-control" id="food-type" name="Foodtype">
+                    <option value="Polao">Polao</option>
+                    <option value="Chicken Roast">Chicken Roast</option>
+                    <option value="Jali Kabab">Jali Kabab</option>
+                    <option value="Kacchi Biryani">Kacchi Biryani</option>
+                    <option value="Beef Rezala">Beef Rezala</option>
+                    <option value="Beef Biryani">Beef Biryani</option>
+                </select>
+                <span class="text-danger"><b>@Html.ValidationMessage("Foodtype")</b></span>
+            </div>
+            <div class="form-group">
+                <label for="preservation-time">Maximum Preservation Time</label>
+                <input type="number" class="form-control" id="preservation-time" name="Preservationtime" placeholder="Enter maximum preservation Hour">
+                <span class="text-danger"><b>@Html.ValidationMessage("Preservationtime")</b></span>
+            </div>
+            <div class="form-group">
+                <label for="packet-count">Number of Packets</label>
+                <input type="number" class="form-control" id="packet-count" name="Packetcount" placeholder="Enter number of packets">
+                <span class="text-danger"><b>@Html.ValidationMessage("Packetcount")</b></span>
+            </div>
+            <button type="submit" class="btn btn-primary submit-button">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add any additional scripts here -->
+
+</body>
+</html>

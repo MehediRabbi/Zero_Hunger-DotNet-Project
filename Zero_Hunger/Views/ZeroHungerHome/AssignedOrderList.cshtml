@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "AssignedOrderList";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add any additional stylesheets or scripts here -->
+    <style>
+        /* Add custom styles if needed */
+        body {
+            background-color: #f8f9fa; /* Bootstrap background color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center; /* Center the form elements */
+        }
+
+        .form-group {
+            display: inline-block; /* Display the form group elements in-line */
+            margin-right: 10px; /* Add some space between elements */
+        }
+
+        .btn-primary {
+            display: inline-block; /* Display the button in-line */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Assigned Order List</h2>
+        <br>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Food Type</th>
+                    <th>Preservation Time (Hour)</th>
+                    <th>Packet Number</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Foodtype</td>
+                        <td>@item.PreservationHour</td>
+                        <td>@item.PacketCount</td>
+                        @{
+                            var status = "";
+                            if (@item.Assign != null && @item.Status == 0)
+                            {
+                                status = "Assigned Staff";
+                            }
+                            else
+                            {
+                                if (@item.Status == 0)
+                                {
+                                    status = "Request Submitted";
+                                }
+                                else
+                                {
+                                    status = "Collected and Distributed";
+                                }
+                            }
+                        }
+                        <td>@status</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="order-number">Order Number</label>
+                <input type="text" class="form-control" id="order-number" name="ordernumber" placeholder="Enter Order Number" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Distributed</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add any additional scripts here -->
+
+</body>
+</html>
